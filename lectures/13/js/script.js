@@ -20,20 +20,30 @@ var questions = [{
         "none of the above"],
     correctAnswer : 1
 }];
-
 var currentQuestion = 0;
 var correctAnswers = 0;
 var quizOver = false;
 displayCurrentQuestion();
 document.getElementById("quiz-message").style.display = 'none';
 function displayNext() {
-    /*Write your code here */
+    //currentQuestion+=1;
+    for (var i = 1; i < question.lenght; i++)
+    {
+        document.getElementById("question").innerHTML=questions[1].question;
+    }
 }
-
 function displayCurrentQuestion() {
-    /*Write your code here */
+    var answer;
+    answer=document.getElementById("question").innerHTML = questions[currentQuestion].question;
+    for (var i = 0; i < 4; i++)
+    {
+        document.getElementById("choice-list").innerHTML += '<input type="radio" name="check">' + questions[currentQuestion].choices[i] + "<br>";
+        if(answer==questions[currentQuestion].correctAnswer)
+        {
+            correctAnswer++;
+        }
+    }
 }
-
 function resetQuiz() {
     currentQuestion = 0;
     correctAnswers = 0;
